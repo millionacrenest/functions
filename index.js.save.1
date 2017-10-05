@@ -1,0 +1,33 @@
+var firebase = require("firebase");
+var cron = require('cron');
+var getJSON = require('get-json')
+
+firebase.initializeApp({
+    serviceAccount: "./key.json",
+    databaseURL: "https://ua32-a7286.firebaseio.com"
+});
+
+
+    var request = 'https://ua32.net/app.json';
+   
+ 
+   console.log(request)
+
+
+    var ref = firebase.database().ref('website');
+    // var messagesRef = ref.child('frontpage');
+
+    // var messageRef = messagesRef.push();
+    // var messageKey = messageRef.key;
+    // var payload = {};
+
+    
+    // payload['website/' + messageKey] = result;
+   
+    ref.set(request);
+    
+      
+   
+
+
+

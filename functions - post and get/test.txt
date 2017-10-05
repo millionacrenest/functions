@@ -1,0 +1,1 @@
+curl --include --request POST --user webmaster:F1ghtTheP0wer! --header 'Content-type: application/hal+json' http://ua32.net/entity/node?_format=hal+json --data-binary '{"_links":{"type":{"href":"http://ua32.net/rest/type/node/page"}}, "title":[{"value":"My second page"}], "body":[{"value":"lorem"}]}'

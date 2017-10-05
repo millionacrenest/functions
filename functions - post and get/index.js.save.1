@@ -1,0 +1,52 @@
+
+var firebase = require("firebase");
+var request = require("request");
+
+
+firebase.initializeApp({
+    serviceAccount: "./key.json",
+    databaseURL: "https://ua32-a7286.firebaseio.com"
+});
+
+//post from website to firebase
+var refWeb = firebase.database().ref('test');
+
+const options = {
+    url: 'https://www.ua32.net/frontpage.json',
+    method: 'GET',
+    headers: {
+	'Accept': 'application/json',
+        'Accept-Charset': 'utf-8',
+        'User-Agent': 'webmaster'
+    }
+};
+
+request(options, function(err, res, body) {
+    let json = JSON.parse(body);
+    refWeb.set(json);
+});
+
+var refA = firebase.database().ref('about');
+
+refA.on('value', function(snap) {
+  console.log('about', snap.val());
+});
+
+$(document).ready(function () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://drupal8.dev/v1/custom_endpoint',
+    success: function (data) {
+      {
+        var date = new Date(data.date * 1000);
+        $('body').append('' +
+          '<h1 class="name">' + data.random_node.title + '</h1>' +
+          '<content class="body">' + data.random_node.body + '</content>' +
+          '<email class="mail">' + data.site_email + '</email>' +
+          '<div class="date">' + date  + '</div>' +
+          '<h2 class="email">' + data.site_name + '</h2>'
+        );
+      }
+    }
+  });
+});

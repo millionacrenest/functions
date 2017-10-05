@@ -1,0 +1,13 @@
+var fetch = require('fetch');
+
+fetch("http://www.website.com", {
+  method: "GET", // not strictly necessary
+  headers: {
+    Authorization: "token XXX",
+    "Content-Type": "application/json" // is this accurate?!
+  }
+}).then(function(response) {
+  return response.json(); // we want JSON output
+}).then(function(response) {
+  console.log(response); // logs the server response
+});

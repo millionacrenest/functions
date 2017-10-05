@@ -1,0 +1,2 @@
+[17-Sep-2017 17:20:21 UTC] PHP Warning:  require_once(/home/ualocal32/public_html/functions/functions/vendor/autoload.php): failed to open stream: No such file or directory in /home/ualocal32/public_html/functions/functions/test.php on line 11
+[17-Sep-2017 17:20:21 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/ualocal32/public_html/functions/functions/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home/ualocal32/public_html/functions/functions/test.php on line 11
